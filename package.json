@@ -1,0 +1,9 @@
+{
+  "name": "selfgram_backend",
+  "version": "1.0.0",
+  "description": "selfgram_backend with prisma apollo graphql javascript",
+  "main": "index.js",
+  "repository": "https://github.com/znehraks/selfgram_backend.git",
+  "author": "DesignC <znehraks@gmail.com>",
+  "license": "MIT"
+}
