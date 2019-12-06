@@ -13,11 +13,11 @@ type User {
   stories: [Story!] @relation(name: "StoryOfUser", onDelete: CASCADE)
   likes: [Like!]! @relation(name: "PostLikeOfUser", onDelete: CASCADE)
   savedPosts: [Post!] @relation(name: "saved", onDelete: CASCADE)
-  comments: [Comment!]! @relation(name: "CommentOfUser", onDelete: CASCADE)
-  rooms: [Room!]! @relation(name: "RoomOfUser", onDelete:CASCADE)
-  messages: [Message!]! @relation(name: "MessageOfUser", onDelete: CASCADE)
-  following: [User!]! @relation(name: "FollowRelation")
-  followers: [User!]! @relation(name: "FollowRelation")
+  comments: [Comment!] @relation(name: "CommentOfUser", onDelete: CASCADE)
+  rooms: [Room!] @relation(name: "RoomOfUser", onDelete:CASCADE)
+  messages: [Message!]
+  following: [User!] @relation(name: "FollowRelation")
+  followers: [User!] @relation(name: "FollowRelation")
   isLogin: Boolean! @default(value: false)
   createAt: DateTime! @createAt
   updatedAt: DateTime! @updatedAt
@@ -29,7 +29,7 @@ type Post {
   caption: String
   user: User @relation(name: "PostOfUser")
   files: [File!] @relation(name: "FileOfPost", onDelete: CASCADE)
-  likes: [Like!]! @relation(name: "PostLikeOfPost", onDelete: CASCADE)
+  likes: [Like!] @relation(name: "PostLikeOfPost", onDelete: CASCADE)
   comments: [Comment!] @relation(name: "CommentOfPost", onDelete: CASCADE)
   likeCount: Int! @default(value: 0)
   commentCount: Int! @default(value: 0)
@@ -52,7 +52,6 @@ type Story {
   user: User @relation(name: "StoryOfUser") 
   files: [File!]! @relation(name: "FileOfStory", onDelete: CASCADE)
   expireTime: DateTime
-  slideSpeed: Int!
   createAt: DateTime! @createAt
   updatedAt: DateTime! @updatedAt
 }
@@ -78,7 +77,7 @@ type File {
 
 type Room {
   id: ID! @id
-  user: [User!]! @relation(name: "RoomOfUser")
+  participants: [User!]! @relation(name: "RoomOfUser")
   messages: [Message!]
   createAt: DateTime! @createAt
   updatedAt: DateTime! @updatedAt
