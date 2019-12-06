@@ -5,6 +5,7 @@ selfgram_backend with apollo prisma graphql javascript
 TO-DO-List
 -[]createAccount
 -[]login
+-[]logout
 -[]editAccount
 -[]deleteAccount
 

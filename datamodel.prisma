@@ -3,7 +3,7 @@ type User {
   userName: String! @unique
   email: String! @unique
   password: String!
-  avatar: String! @default(value: "https://sophosnews.files.wordpress.com/2014/04/anonymous-250.jpg?w=250")
+  avatar: String @default(value: "https://sophosnews.files.wordpress.com/2014/04/anonymous-250.jpg?w=250")
   bio: String
   firstName: String
   lastName: String
@@ -19,8 +19,6 @@ type User {
   following: [User!] @relation(name: "FollowRelation")
   followers: [User!] @relation(name: "FollowRelation")
   isLogin: Boolean! @default(value: false)
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Post {
@@ -35,25 +33,18 @@ type Post {
   commentCount: Int! @default(value: 0)
   taggedUser: [User!] @relation(name: "Tagged")
   saved: [User!] @relation(name: "Saved")
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type PostLike {
   id: ID! @id
   user: User @relation(name: "PostLikeOfUser")
   post: Post @relation(name: "PostLikeOfPost")
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Story {
   id: ID! @id
   user: User @relation(name: "StoryOfUser") 
   files: [File!]! @relation(name: "FileOfStory", onDelete: CASCADE)
-  expireTime: DateTime
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Comment {
@@ -62,8 +53,6 @@ type Comment {
   user: User @relation(name: "CommentOfUser")
   post: Post @relation(name: "CommentOfPost")
   commentLike: Boolean! @default(value: false)
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type File {
@@ -71,16 +60,12 @@ type File {
   url: String!
   post: Post @relation(name: "FileOfPost")
   story: Story @relation(name: "FileOfStory")
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Room {
   id: ID! @id
   participants: [User!]! @relation(name: "RoomOfUser")
   messages: [Message!]
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }
 
 type Message {
@@ -89,6 +74,4 @@ type Message {
   MessageUser: User 
   room: Room!
   file: File
-  createAt: DateTime! @createAt
-  updatedAt: DateTime! @updatedAt
 }

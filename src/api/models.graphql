@@ -3,7 +3,7 @@ type User {
   userName: String!
   email: String!
   password: String!
-  avatar: String!
+  avatar: String
   bio: String
   firstName: String
   lastName: String
@@ -11,7 +11,7 @@ type User {
   posts: [Post!]
   tagged: [Post!]
   stories: [Story!] 
-  likes: [Like!]!
+  likes: [PostLike!]!
   savedPosts: [Post!]
   comments: [Comment!]
   rooms: [Room!]
@@ -21,8 +21,6 @@ type User {
   following: [User!]
   followers: [User!]
   isLogin: Boolean!
-  createAt: DateTime!
-  updatedAt: DateTime! 
 }
 
 type Post {
@@ -31,31 +29,25 @@ type Post {
   caption: String
   user: User 
   files: [File!]
-  likes: [Like!] 
+  likes: [PostLike!] 
   comments: [Comment!]
   likeCount: Int!
   commentCount: Int! 
   taggedUser: [User!]
   saved: [User!] 
-  createAt: DateTime!
-  updatedAt: DateTime!
+
 }
 
 type PostLike {
   id: ID!
   user: User!
   post: Post!
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type Story {
   id: ID! 
   user: User!
-  files: [File!]! 
-  expireTime: DateTime
-  createAt: DateTime!
-  updatedAt: DateTime! 
+  files: [File!]!
 }
 
 type Comment {
@@ -63,9 +55,7 @@ type Comment {
   text: String!
   user: User!
   post: Post!
-  commentLike: Boolean!
-  createAt: DateTime! 
-  updatedAt: DateTime! 
+  commentLike: Boolean! 
 }
 
 type File {
@@ -73,16 +63,12 @@ type File {
   url: String!
   post: Post 
   story: Story 
-  createAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type Room {
   id: ID! 
   participants: [User!]! 
-  messages: [Message!]
-  createAt: DateTime! 
-  updatedAt: DateTime! 
+  messages: [Message!] 
 }
 
 type Message {
@@ -91,6 +77,4 @@ type Message {
   MessageUser: User
   room: Room!
   file: File
-  createAt: DateTime!
-  updatedAt: DateTime!
 }
