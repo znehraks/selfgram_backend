@@ -1,7 +1,7 @@
 type User {
   id: ID! @id
-  userName: String!
-  email: String!
+  userName: String! @unique
+  email: String! @unique
   password: String!
   avatar: String! @default(value: "https://sophosnews.files.wordpress.com/2014/04/anonymous-250.jpg?w=250")
   bio: String
@@ -9,10 +9,10 @@ type User {
   lastName: String
   fullName: String
   posts: [Post!] @relation(name: "PostOfUser", onDelete: CASCADE)
-  tagged: [Post!] @relation(name: "tagged", onDelete: CASCADE)
+  tagged: [Post!] @relation(name: "Tagged", onDelete: CASCADE)
   stories: [Story!] @relation(name: "StoryOfUser", onDelete: CASCADE)
-  likes: [Like!]! @relation(name: "PostLikeOfUser", onDelete: CASCADE)
-  savedPosts: [Post!] @relation(name: "saved", onDelete: CASCADE)
+  likes: [PostLike!]! @relation(name: "PostLikeOfUser", onDelete: CASCADE)
+  savedPosts: [Post!] @relation(name: "Saved", onDelete: CASCADE)
   comments: [Comment!] @relation(name: "CommentOfUser", onDelete: CASCADE)
   rooms: [Room!] @relation(name: "RoomOfUser", onDelete:CASCADE)
   messages: [Message!]
@@ -29,12 +29,12 @@ type Post {
   caption: String
   user: User @relation(name: "PostOfUser")
   files: [File!] @relation(name: "FileOfPost", onDelete: CASCADE)
-  likes: [Like!] @relation(name: "PostLikeOfPost", onDelete: CASCADE)
+  likes: [PostLike!] @relation(name: "PostLikeOfPost", onDelete: CASCADE)
   comments: [Comment!] @relation(name: "CommentOfPost", onDelete: CASCADE)
   likeCount: Int! @default(value: 0)
   commentCount: Int! @default(value: 0)
-  taggedUser: [User!] @relation(name: "tagged")
-  saved: [User!] @relation(name: "saved")
+  taggedUser: [User!] @relation(name: "Tagged")
+  saved: [User!] @relation(name: "Saved")
   createAt: DateTime! @createAt
   updatedAt: DateTime! @updatedAt
 }
@@ -86,8 +86,7 @@ type Room {
 type Message {
   id: ID! @id
   text: String!
-  from: User!
-  to: User!
+  MessageUser: User 
   room: Room!
   file: File
   createAt: DateTime! @createAt
