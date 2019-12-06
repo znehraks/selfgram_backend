@@ -28,7 +28,7 @@ type Post {
   location: String
   caption: String
   user: User 
-  files: [File!]
+  files: [File!]!
   likes: [PostLike!] 
   comments: [Comment!]
   likeCount: Int!

@@ -1,0 +1,11 @@
+type Mutation {
+  createPostItem(
+    location: String
+    caption: String
+    files: [String!]!
+  ): Post!
+}
+
+type Query {
+  something: String!
+}
