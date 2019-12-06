@@ -3,11 +3,10 @@ selfgram_backend with apollo prisma graphql javascript
 
 
 TO-DO-List
--[]createAccount
--[]login
--[]logout
--[]editAccount
--[]deleteAccount
+-[X]createAccount
+-[X]login
+-[X]editAccount
+-[X]deleteAccount
 
 -[]createPost
 -[]editPost
