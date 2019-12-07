@@ -20,7 +20,7 @@ TO-DO-List
 
 -[X]createComment
 -[X]removeComment
--[]toggleLikeComment
+-[X]toggleLikeComment
 
 -[]createRoom
 -[]deleteRoom
