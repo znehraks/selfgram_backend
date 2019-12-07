@@ -1,0 +1,9 @@
+type Mutation {
+  createStoryItem(
+    files: [String!]!
+  ): Story!
+}
+
+type Query {
+  something: String!
+}
