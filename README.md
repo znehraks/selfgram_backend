@@ -8,9 +8,9 @@ TO-DO-List
 -[X]editAccount
 -[X]deleteAccount
 
--[]createPost
--[]editPost
--[]deletePost
+-[X]createPost
+-[X]editPost
+-[X]deletePost
 
 -[]createStory
 -[]deleteStory
