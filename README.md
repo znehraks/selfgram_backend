@@ -18,8 +18,9 @@ TO-DO-List
 -[X]toggleLike
 -[X]toggleFollow
 
--[]createComment
--[]deleteComment
+-[X]createComment
+-[X]removeComment
+-[]toggleLikeComment
 
 -[]createRoom
 -[]deleteRoom

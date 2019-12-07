@@ -19,6 +19,7 @@ type User {
   following: [User!] @relation(name: "FollowRelation")
   followers: [User!] @relation(name: "FollowRelation")
   isLogin: Boolean! @default(value: false)
+  commentLikes: [CommentLike!] @relation(name: "CommentLikeOfUser", onDelete: CASCADE)
 }
 
 type Post {
@@ -33,6 +34,7 @@ type Post {
   commentCount: Int! @default(value: 0)
   taggedUser: [User!] @relation(name: "Tagged")
   saved: [User!] @relation(name: "Saved")
+  commentLike: [CommentLike!] @relation(name: "CommentLikeOfPost", onDelete: CASCADE)
 }
 
 type PostLike {
@@ -52,7 +54,14 @@ type Comment {
   text: String!
   user: User @relation(name: "CommentOfUser")
   post: Post @relation(name: "CommentOfPost")
-  commentLike: Boolean! @default(value: false)
+  commentLike: [CommentLike!] @relation(name: "CommentLikeOfComment", onDelete: CASCADE)
+}
+
+type CommentLike {
+  id: ID! @id
+  user: User @relation(name: "CommentLikeOfUser")
+  post: Post @relation(name: "CommentLikeOfPost")
+  comment: Comment @relation(name: "CommentLikeOfComment")
 }
 
 type File {

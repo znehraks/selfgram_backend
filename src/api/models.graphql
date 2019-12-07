@@ -21,6 +21,7 @@ type User {
   following: [User!]
   followers: [User!]
   isLogin: Boolean!
+  commentLike: CommentLike 
 }
 
 type Post {
@@ -34,8 +35,8 @@ type Post {
   likeCount: Int!
   commentCount: Int! 
   taggedUser: [User!]
-  saved: [User!] 
-
+  saved: [User!]
+  commentLike: CommentLike 
 }
 
 type PostLike {
@@ -55,7 +56,14 @@ type Comment {
   text: String!
   user: User!
   post: Post!
-  commentLike: Boolean! 
+  commentLike: CommentLike 
+}
+
+type CommentLike {
+  id: ID! 
+  user: User! 
+  post: Post!
+  comment: Comment!
 }
 
 type File {
