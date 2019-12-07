@@ -12,11 +12,11 @@ TO-DO-List
 -[X]editPost
 -[X]deletePost
 
--[]createStory
--[]deleteStory
+-[X]createStory
+-[X]deleteStory
 
--[]toggleLike
--[]toggleFollow
+-[X]toggleLike
+-[X]toggleFollow
 
 -[]createComment
 -[]deleteComment
