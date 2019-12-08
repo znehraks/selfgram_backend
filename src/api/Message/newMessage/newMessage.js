@@ -1,12 +1,13 @@
+  
 import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Subscription: {
     newMessage: {
-      subscribe: (_, args, { request, isAuthenticated }) => {
+      subscribe: (_, args) => {
         const { roomId } = args;
-        return (
-          prisma.$subscribe.message({
+        return prisma.$subscribe
+          .message({
             AND: [
               { mutation_in: "CREATED" },
               {
@@ -15,11 +16,13 @@ export default {
                 }
               }
             ]
-          }),
-          node()
-        );
+          })
+          .node();
       },
-      resolve: payload => payload
+      resolve: (payload, args, context) => {
+        console.log(args, context);
+        return payload;
+      }
     }
   }
 };
