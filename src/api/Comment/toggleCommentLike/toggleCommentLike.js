@@ -39,8 +39,8 @@ export default {
                 });
               }
               return true;
-            } catch {
-              return false;
+            } catch(e) {
+              throw Error(e);
             }
           }
     }

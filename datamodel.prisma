@@ -15,7 +15,6 @@ type User {
   savedPosts: [Post!] @relation(name: "Saved", onDelete: CASCADE)
   comments: [Comment!] @relation(name: "CommentOfUser", onDelete: CASCADE)
   rooms: [Room!] @relation(name: "RoomOfUser", onDelete:CASCADE)
-  messages: [Message!]
   following: [User!] @relation(name: "FollowRelation")
   followers: [User!] @relation(name: "FollowRelation")
   isLogin: Boolean! @default(value: false)
@@ -80,7 +79,8 @@ type Room {
 type Message {
   id: ID! @id
   text: String!
-  MessageUser: User 
+  from: User @relation(name: "From")
+  to: User @relation(name: "To")
   room: Room!
   file: File
 }

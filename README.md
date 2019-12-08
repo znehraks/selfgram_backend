@@ -22,10 +22,7 @@ TO-DO-List
 -[X]removeComment
 -[X]toggleLikeComment
 
--[]createRoom
--[]deleteRoom
-
--[]sendMessage
+-[]sendMessage & automatically creating Room
 
 -[]seeUser
 

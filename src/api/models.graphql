@@ -21,7 +21,7 @@ type User {
   following: [User!]
   followers: [User!]
   isLogin: Boolean!
-  commentLike: CommentLike 
+  commentLike: CommentLike
 }
 
 type Post {
@@ -82,7 +82,8 @@ type Room {
 type Message {
   id: ID! 
   text: String!
-  MessageUser: User
+  from: User!
+  to: User!
   room: Room!
   file: File
 }
