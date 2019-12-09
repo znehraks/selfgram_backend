@@ -22,11 +22,14 @@ TO-DO-List
 -[X]removeComment
 -[X]toggleLikeComment
 
--[]sendMessage & automatically creating Room
+-[X]sendMessage & automatically creating Room
 
--[]seeUser
+-[X]seeUser
 
 -[]seePosts
 -[]seePost
+
+-[]seeRooms
+-[]seeRoom
 
 -[]search User/Post
