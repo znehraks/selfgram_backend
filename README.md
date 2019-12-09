@@ -26,8 +26,7 @@ TO-DO-List
 
 -[X]seeUser
 
--[]seePosts
--[]seePost
+-[X]seePost
 
 -[]seeRooms
 -[]seeRoom
