@@ -9,6 +9,7 @@ type User {
   lastName: String
   fullName: String
   posts: [Post!]
+  postsCount: Int!
   tagged: [Post!]
   stories: [Story!] 
   likes: [PostLike!]!
@@ -20,6 +21,8 @@ type User {
   isSelf: Boolean!
   following: [User!]
   followers: [User!]
+  followingCount: Int!
+  followersCount: Int!
   isLogin: Boolean!
   commentLike: CommentLike
 }
@@ -30,7 +33,8 @@ type Post {
   caption: String
   user: User 
   files: [File!]!
-  likes: [PostLike!] 
+  likes: [PostLike!]
+  isLiked: Boolean! 
   comments: [Comment!]
   likeCount: Int!
   commentCount: Int! 
