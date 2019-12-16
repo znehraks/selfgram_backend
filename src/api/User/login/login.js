@@ -16,10 +16,12 @@ export default {
                     });
                     return generateToken(user.id);
                 }else{
-                    throw Error("Wrong Password");
+                    console.log("wrong password");
+                    return 0;
                 }
             }else{
-                throw Error("Email don't exist");
+                console.log("account don't exist");
+                return -1;
             }
         }
     }

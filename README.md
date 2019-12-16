@@ -31,4 +31,6 @@ TO-DO-List
 -[X]seeRooms
 -[X]seeRoom
 
--[]search User/Post
+-[X]search User/Post
+
+-[X]me.graphql ,me.js
