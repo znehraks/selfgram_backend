@@ -33,4 +33,6 @@ TO-DO-List
 
 -[X]search User/Post
 
--[X]me.graphql ,me.js
+-[X]me
+
+-[X]seeFeed
