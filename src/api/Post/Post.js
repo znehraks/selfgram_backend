@@ -8,7 +8,7 @@ export default {
     isLiked: (parent, _, { request }) => {
       const { user } = request;
       const { id } = parent;
-      return prisma.$exists.like({
+      return prisma.$exists.postLike({
         AND: [
           {
             user: {
@@ -25,7 +25,7 @@ export default {
     },
     likeCount: parent => 
       prisma
-        .likesConnection({
+        .postLikesConnection({
           where: {post: {id: parent.id}}
         })
         .aggregate()

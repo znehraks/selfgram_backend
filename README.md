@@ -36,3 +36,4 @@ TO-DO-List
 -[X]me
 
 -[X]seeFeed
+-[]seeStory

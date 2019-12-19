@@ -24,7 +24,8 @@ export default {
         }
         return true;
       } catch(e) {
-        throw Error(e);
+        console.log(e);
+        return false;
       }
     }
   }

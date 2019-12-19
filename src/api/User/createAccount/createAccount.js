@@ -1,4 +1,5 @@
 import { prisma } from "../../../../generated/prisma-client";
+import bcrypt from "bcryptjs";
 
 export default {
   Mutation: {
@@ -12,6 +13,8 @@ export default {
         lastName = ""
       } = args;
 
+      const hashedPassword = await bcrypt.hash(password, 10)
+
       const exists = await prisma.$exists.user({
         OR: [{ userName }, { email }]
       });
@@ -22,7 +25,7 @@ export default {
       await prisma.createUser({
         userName,
         email,
-        password,
+        password: hashedPassword,
         bio,
         firstName,
         lastName

@@ -25,6 +25,8 @@ type User {
   followersCount: Int!
   isLogin: Boolean!
   commentLike: CommentLike
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Post {
@@ -40,19 +42,25 @@ type Post {
   commentCount: Int! 
   taggedUser: [User!]
   saved: [User!]
-  commentLike: CommentLike 
+  commentLike: CommentLike
+  createdAt: String!
+  updatedAt: String! 
 }
 
 type PostLike {
   id: ID!
   user: User!
   post: Post!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Story {
   id: ID! 
   user: User!
   files: [File!]!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Comment {
@@ -60,7 +68,9 @@ type Comment {
   text: String!
   user: User!
   post: Post!
-  commentLike: CommentLike 
+  commentLike: CommentLike
+  createdAt: String!
+  updatedAt: String! 
 }
 
 type CommentLike {
@@ -68,6 +78,8 @@ type CommentLike {
   user: User! 
   post: Post!
   comment: Comment!
+  createdAt: String!
+  updatedAt: String!
 }
 
 type File {
@@ -75,12 +87,16 @@ type File {
   url: String!
   post: Post 
   story: Story 
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Room {
   id: ID! 
   participants: [User!]! 
   messages: [Message!] 
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Message {
@@ -90,4 +106,6 @@ type Message {
   to: User!
   room: Room!
   file: File
+  createdAt: String!
+  updatedAt: String!
 }
