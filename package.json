@@ -5,6 +5,10 @@
   "repository": "https://github.com/znehraks/selfgram_backend.git",
   "author": "DesignC <znehraks@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "v10.15.3",
+    "yarn": "1.17.3"
+  },
   "dependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
