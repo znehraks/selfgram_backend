@@ -6,10 +6,13 @@
   "author": "DesignC <znehraks@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
     "bcryptjs": "^2.4.3",
+    "copy": "^0.3.2",
     "dotenv": "^8.2.0",
     "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
@@ -22,10 +25,16 @@
     "prisma-client-lib": "^1.34.10"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.6",
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "prisma": "prisma deploy",
+    "deploy": "prisma deploy --force",
+    "generate": "prisma generate", 
+    "prisma": "yarn run deploy && yarn run generate",
+    "prebuild": "yarn run generate",
+    "build": "babel src -d build && cd src && npx copy ./api/**/**/*.graphql ../build/ && npx copy ./api/*.graphql ../build/ && npx copy ./api/**/*.graphql ../build/",
+    "start": "node build/server.js",
     "dev": "nodemon --exec babel-node src/server.js --signal SIGINT"
   }
 }

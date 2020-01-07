@@ -22,7 +22,8 @@ export default {
           console.log("wrong password");
           return 0;
         }
-      } else {
+      } else if(user === undefined){
+        
         console.log("account don't exist");
         return -1;
       }

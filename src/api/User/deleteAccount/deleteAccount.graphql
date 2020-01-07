@@ -1,3 +1,3 @@
 type Mutation {
-  deleteAccount(email: String!, password: String!): Boolean!
+  deleteAccount(userName: String!, password: String!): Boolean!
 }

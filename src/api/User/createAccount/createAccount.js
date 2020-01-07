@@ -19,7 +19,7 @@ export default {
         OR: [{ userName }, { email }]
       });
       if(exists){
-        throw Error("Already taken");
+        return false;
       }
 
       await prisma.createUser({

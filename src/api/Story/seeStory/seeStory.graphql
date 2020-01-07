@@ -1,0 +1,3 @@
+type Query {
+    seeStory(storyId: String!): Story!
+}
